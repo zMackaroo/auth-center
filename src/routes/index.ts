@@ -6,6 +6,30 @@ import PermissionRoutes from "./permission.route";
 
 const router = Router();
 
+/**
+ * @swagger
+ * /health:
+ *   get:
+ *     summary: Health check endpoint
+ *     tags: [Health]
+ *     responses:
+ *       200:
+ *         description: API is running
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: API is running
+ *                 timestamp:
+ *                   type: string
+ *                   format: date-time
+ */
 router.get("/health", (req, res) => {
   res.status(200).json({
     success: true,
