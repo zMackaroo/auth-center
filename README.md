@@ -76,6 +76,20 @@ cp .env.example .env
 npm run dev
 ```
 
+### API Documentation (Swagger)
+
+Once the server is running, you can access the interactive API documentation at:
+
+```
+http://localhost:3000/api-docs
+```
+
+The Swagger UI provides:
+- 📖 Complete API reference with all endpoints
+- 🧪 Interactive testing — try out requests directly in the browser
+- 📋 Request/response schemas and examples
+- 🔐 Authentication testing with JWT tokens
+
 ### Environment Variables
 
 | Variable     | Description                | Default       |
@@ -88,6 +102,8 @@ npm run dev
 ---
 
 ## 📚 API Reference
+
+> 💡 **Tip:** For an interactive API experience, visit the [Swagger UI](http://localhost:3000/api-docs) when the server is running.
 
 Base URL: `http://localhost:3000/api/v1`
 
@@ -485,6 +501,8 @@ DELETE /api/v1/permission/:clientId/:userId/:module
 ```
 auth_center/
 ├── src/
+│   ├── config/            # Configuration files
+│   │   └── swagger.config.ts  # Swagger/OpenAPI setup
 │   ├── controllers/       # Route handlers
 │   │   ├── auth.controller.ts
 │   │   ├── client.controller.ts
@@ -499,7 +517,7 @@ auth_center/
 │   │   ├── User.model.ts
 │   │   ├── Roles.model.ts
 │   │   └── Permission.model.ts
-│   ├── routes/            # API routes
+│   ├── routes/            # API routes (with Swagger annotations)
 │   │   ├── index.ts
 │   │   ├── auth.route.ts
 │   │   ├── client.route.ts
@@ -525,6 +543,7 @@ auth_center/
 - **Authentication:** JWT (jsonwebtoken)
 - **Password Hashing:** bcryptjs
 - **Validation:** express-validator
+- **API Documentation:** Swagger (swagger-jsdoc + swagger-ui-express)
 
 ---
 
